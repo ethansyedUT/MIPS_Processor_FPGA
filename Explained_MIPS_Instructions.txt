@@ -1,0 +1,31 @@
+x"30000000", -- andi $0, $0, 0 => $0 = 0
+x"20010006", -- addi $1, $0, 6 => $1 = 6
+x"34020012", -- ori $2, $0, 18 => $2 = 18
+x"00221820", -- add $3, $1, $2 => $3 = $1 + $2 = 24
+x"00412022", -- sub $4, $2, $1 => $4 = $2 - $1 = 12
+x"00222824", -- and $5, $1, $2 => $5 = $1 and $2 = 2
+x"00223025", -- or $6, $1, $2 => $6 = $1 or $2 = 22
+x"0022382A", -- slt $7, $1, $2 => $7 = 1 because $1<$2
+x"00024100", -- sll $8, $2, 4 => $8 = 18 * 16 = 288
+x"00014842", -- srl $9, $1, 1 => $9 = 6/2 = 3
+x"10220001", -- beq $1, $2, 1 => Will not branch. $10 wrong if fails.
+x"8C0A0004", -- lw $10, 4($0) => $10 = 5th instr = x"00412022" = 4268066
+x"14620001", -- bne $1, $2, 1 => Branch to PC+1+1 (not PC+4+4 because
+word-addressed memory instead of byteaddressed)
+x"30210000", -- andi $1, $1, 0 => $1 = 0 (skipped if bne worked correctly)
+x"08000010", -- j 16 => PC = $16. $2 wrong if j malfunctioned
+x"30420000", -- andi $2, $2, 0 => $2 = 0 (skipped if j worked correctly)
+x"00400008", -- jr $2 => PC = $2 = 18. $3 wrong if jr malfunction
+x"30630000", -- andi $3, $3, 0 => $3 = 0 (skipped if jr worked correctly)
+x"AC010040", -- sw $1, 64($0) => Mem(64) = $1 = 6
+x"AC020041", -- sw $2, 65($0) => Mem(65) = $2 = 18
+x"AC030042", -- sw $3, 66($0) => Mem(66) = $3 = 24
+x"AC040043", -- sw $4, 67($0) => Mem(67) = $4 = 12
+x"AC050044", -- sw $5, 68($0) => Mem(68) = $5 = 2
+x"AC060045", -- sw $6, 69($0) => Mem(69) = $6 = 22
+x"AC070046", -- sw $7, 70($0) => Mem(70) = $7 = 1
+x"AC080047" -- sw $8, 71($0) => Mem(71) = $8 = 288
+x"AC090048", -- sw $9, 72($0) => Mem(72) = $9 = 3
+x"AC0A0049", -- sw $10, 73($0) => Mem(73) = $10 = x00412022
+
+TAKEN FROM THE TEXTBOOK

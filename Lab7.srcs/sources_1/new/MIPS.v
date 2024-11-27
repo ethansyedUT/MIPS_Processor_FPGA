@@ -32,11 +32,13 @@
 `define f_code instr[5:0]
 `define numshift instr[10:6]
 
-module MIPS (CLK, RST, CS, WE, ADDR, Mem_Bus);
+module MIPS (CLK, RST, CS, WE, ADDR, data_in, data_out);
   input CLK, RST;
   output reg CS, WE;
   output [6:0] ADDR;
-  inout [31:0] Mem_Bus;
+  input [31:0] data_in;
+  output [31:0] data_out;
+//  inout [31:0] Mem_Bus;
 
   //special instructions (opcode == 000000), values of F code (bits 5-0):
   parameter add = 6'b100000;
@@ -81,9 +83,9 @@ module MIPS (CLK, RST, CS, WE, ADDR, Mem_Bus);
   assign dr = (format == R)? instr[15:11] : instr[20:16]; //Destination Register MUX (MUX1)
   assign alu_in_A = readreg1;
   assign alu_in_B = (reg_or_imm_save)? imm_ext : readreg2; //ALU MUX (MUX2)
-  assign reg_in = (alu_or_mem_save)? Mem_Bus : alu_result_save; //Data MUX
+  assign reg_in = (alu_or_mem_save)? data_in : alu_result_save; //Data MUX
   assign format = (`opcode == 6'd0)? R : ((`opcode == 6'd2)? J : I);
-  assign Mem_Bus = (writing)? readreg2 : 32'bZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ;
+  assign data_out = (writing)? readreg2 : 32'bZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ;
 
   //drive memory bus only during writes
   assign ADDR = (fetchDorI)? pc : alu_result_save[6:0]; //ADDR Mux
@@ -98,6 +100,8 @@ module MIPS (CLK, RST, CS, WE, ADDR, Mem_Bus);
     writing = 0;
     reg_or_imm = 0; reg_or_imm_save = 0;
     alu_or_mem_save = 0;
+    pc = 7'd0;
+    npc = 7'd0;
   end
 
   always @(*)
@@ -108,9 +112,15 @@ module MIPS (CLK, RST, CS, WE, ADDR, Mem_Bus);
       0: begin //fetch
         npc = pc + 7'd1; CS = 1; nstate = 3'd1;
         fetchDorI = 1;
+        $display("Fetch Status:");
+        $display("CS=%b, WE=%b, ADDR=%h", CS, WE, ADDR);
+        $display("instr=%h\n", instr);
       end
       1: begin //decode
         nstate = 3'd2; reg_or_imm = 0; alu_or_mem = 0;
+        $display("Decode Status:");
+        $display("CS=%b, WE=%b, ADDR=%h", CS, WE, ADDR);
+        $display("instr=%h\n", instr);
         if (format == J) begin //jump, and finish
           npc = instr[6:0];
           nstate = 3'd0;
@@ -134,6 +144,7 @@ module MIPS (CLK, RST, CS, WE, ADDR, Mem_Bus);
       end
       2: begin //execute
         nstate = 3'd3;
+        $display("Execute Status:");
         if (opsave == and1) alu_result = alu_in_A & alu_in_B;
         else if (opsave == or1) alu_result = alu_in_A | alu_in_B;
         else if (opsave == add) alu_result = alu_in_A + alu_in_B;
@@ -151,8 +162,10 @@ module MIPS (CLK, RST, CS, WE, ADDR, Mem_Bus);
           npc = alu_in_A[6:0];
           nstate = 3'd0;
         end
+        $display("ALU_A %d, ALU_B %d, ALU_Result %d\n",alu_in_A, alu_in_B, alu_result);
       end
       3: begin //prepare to write to mem
+        $display("Writeback\n");
         nstate = 3'd0;
         if ((format == R)||(`opcode == addi)||(`opcode == andi)||(`opcode == ori)) regw = 1;
         else if (`opcode == sw) begin
@@ -184,7 +197,7 @@ module MIPS (CLK, RST, CS, WE, ADDR, Mem_Bus);
       pc <= npc;
     end
 
-    if (state == 3'd0) instr <= Mem_Bus;
+    if (state == 3'd0) instr <= data_in;
     else if (state == 3'd1) begin
       opsave <= op;
       reg_or_imm_save <= reg_or_imm;

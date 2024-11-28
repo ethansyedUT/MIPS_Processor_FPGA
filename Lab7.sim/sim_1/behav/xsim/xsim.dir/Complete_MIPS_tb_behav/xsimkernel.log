@@ -1,0 +1,7 @@
+Running: xsim.dir/Complete_MIPS_tb_behav/xsimk.exe -simmode gui -wdb Complete_MIPS_tb_behav.wdb -simrunnum 0 -socket 57713
+Design successfully loaded
+Design Loading Memory Usage: 8008 KB (Peak: 8008 KB)
+Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 8928 KB (Peak: 8928 KB)
+Simulation CPU Usage: 0 ms

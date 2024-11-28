@@ -32,12 +32,14 @@
 `define f_code instr[5:0]
 `define numshift instr[10:6]
 
-module MIPS (CLK, RST, CS, WE, ADDR, data_in, data_out);
+module MIPS (CLK, RST, CS, WE, ADDR, data_in, data_out, reg1);
   input CLK, RST;
   output reg CS, WE;
   output [6:0] ADDR;
   input [31:0] data_in;
   output [31:0] data_out;
+  output [31:0] reg1;
+  
 //  inout [31:0] Mem_Bus;
 
   //special instructions (opcode == 000000), values of F code (bits 5-0):
@@ -99,14 +101,16 @@ module MIPS (CLK, RST, CS, WE, ADDR, data_in, data_out);
   assign format = (`opcode == 6'd0)? R : ((`opcode == 6'd2 || `opcode == 6'd3)? J : I); // MODIFIED TO SUPPORT JAL
   assign data_out = (writing)? readreg2 : 32'bZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ;
 
-  //drive memory bus only during writes
-  assign ADDR = (fetchDorI)? pc : alu_result_save[6:0]; //ADDR Mux
-  REG Register(CLK, regw, dr, `sr1, `sr2, reg_in, readreg1, readreg2);
-  
-  
   // My Signals
   integer i;
   // END
+  
+  //drive memory bus only during writes
+  assign ADDR = (fetchDorI)? pc : alu_result_save[6:0]; //ADDR Mux
+  REG Register(CLK, regw, dr, `sr1, `sr2, reg_in, readreg1, readreg2, reg1);
+  
+  
+
 
   initial begin
     op = and1; opsave = and1;

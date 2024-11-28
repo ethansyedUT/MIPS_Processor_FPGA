@@ -1,0 +1,54 @@
+Lab 7 given test program
+
+# Standard plus custom instructions assembled:
+start:
+20260000    # addi $6, $1, 0      ($6 = $1 + 0)
+31080000    # andi $8, $8, 0      ($8 = $8 & 0)
+3C047000    # lui $4, 28672       ($4 = 28672 << 16)
+3C057FFF    # lui $5, 32767       ($5 = 32767 << 16)
+3508000B    # ori $8, $8, 11      ($8 = $8 | 11)
+loop:
+10260000    # beq $6, $1, loop    (if $6 == $1, branch to loop)
+20260000    # addi $6, $1, 0      ($6 = $1 + 0)
+00010840    # sll $7, $1, 1       ($7 = $1 << 1)
+01073820    # add $7, $8, $7      ($7 = $8 + $7)
+00E00008    # jr $7               (jump to address in $7)
+08000005    # j loop              (jump to loop)
+
+call_table:
+0C000000    # jal operation0      (jump and link to operation0)
+08000005    # j loop              (jump to loop)
+0C000000    # jal operation1      (jump and link to operation1)
+08000005    # j loop              (jump to loop)
+0C000000    # jal operation2      (jump and link to operation2)
+08000005    # j loop              (jump to loop)
+0C000000    # jal operation3      (jump and link to operation3)
+08000005    # j loop              (jump to loop)
+0C000000    # jal operation4      (jump and link to operation4)
+08000005    # j loop              (jump to loop)
+0C000000    # jal operation5      (jump and link to operation5)
+08000005    # j loop              (jump to loop)
+
+operation0:
+00852815    # add8 $2, $4, $5     (custom: f_code = 101101)
+03E00008    # jr $31              (return)
+
+operation1:
+3C021000    # lui $2, 4096        ($2 = 4096 << 16)
+03E00008    # jr $31              (return)
+
+operation2:
+00051013    # rbit $2, $5         (custom: f_code = 101111)
+03E00008    # jr $31              (return)
+
+operation3:
+00041010    # rev $2, $4          (custom: f_code = 110000)
+03E00008    # jr $31              (return)
+
+operation4:
+00A51019    # sadd $2, $5, $5     (custom: f_code = 110001)
+03E00008    # jr $31              (return)
+
+operation5:
+0085101A    # ssub $2, $4, $5     (custom: f_code = 110010)
+03E00008    # jr $31              (return)

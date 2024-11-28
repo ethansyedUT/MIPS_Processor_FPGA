@@ -31,26 +31,22 @@ module Complete_MIPS_tb ();
   wire [6:0] Address;
   wire [6:0] Address_MUX;
   
-  // Adapted from Textbook
-  parameter N = 10;
-  reg[31:0] expected[N:1];
+    // Adapted from Textbook
+    parameter N = 10;
+    reg[31:0] expected[N:1];
   
-
-  
-  integer i = 1;
-
- wire [31:0] CPU_Driver;
- wire [31:0] Memory_Driver;
+    integer i = 1;
+    wire [31:0] CPU_Driver;
+    wire [31:0] Memory_Driver;
+    wire [31:0] cpu_reg1;
  
- 
-
-  MIPS CPU(CLK, RST, CS, WE, Address, Mem_Bus, CPU_Driver);
-  Memory MEM(CS, WE, CLK, Address, Mem_Bus, Memory_Driver);
+    MIPS CPU(CLK, RST, CS, WE, Address, Mem_Bus, CPU_Driver, cpu_reg1);
+    Memory MEM(CS, WE, CLK, Address, Mem_Bus, Memory_Driver);
   
     assign Mem_Bus = (CS && !WE)? Memory_Driver : 32'bz;
     assign Mem_Bus = (WE)? CPU_Driver : 32'bz;
   
-
+    
 
   // End
   

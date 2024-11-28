@@ -34,8 +34,12 @@ module Complete_MIPS(CLK, RST);
   wire CS, WE;
   wire [6:0] ADDR;
   wire [31:0] Mem_Bus;
+  wire [31:0] CPU_reg1;
+  
+  
+  
 
-  MIPS CPU(CLK, RST, CS, WE, ADDR, Mem_Bus);
+  MIPS CPU(CLK, RST, CS, WE, ADDR, Mem_Bus, CPU_reg1);
   Memory MEM(CS, WE, CLK, ADDR, Mem_Bus);
 
 endmodule

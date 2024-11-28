@@ -1,0 +1,18 @@
+addi $0, $0, 0      # Set $0 to 0 (testing if hardwired to 0)
+addi $2, $0, 512
+addi $1, $0, 1      # $1 = 1
+
+# Create a loop that shifts left by 1 each time
+loop:
+sll $1, $1, 1       # Shift $1 left by 1
+bne $1, $2, loop    # If $1 is not 512, continue shifting
+addi $1, $0, 1      # Reset $1 to 1 when it becomes 0
+j loop              # Repeat forever
+
+# Machine code:
+20000000    # addi $0, $0, 0
+20010001    # addi $1, $0, 1
+00010840    # sll $1, $1, 1
+14200001    # bne $1, $0, loop (-1 instruction)
+20010001    # addi $1, $0, 1
+08000002    # j loop (to instruction 2)

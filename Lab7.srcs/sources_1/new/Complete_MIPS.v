@@ -25,21 +25,26 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-module Complete_MIPS(CLK, RST);
+module Complete_MIPS(CLK, RST, sw,led);
   // This is your top module for synthesis.
   // You define what signals the top module needs.
   input CLK;
   input RST;
+  input [1:0] sw;
+  output [7:0] led;
 
   wire CS, WE;
   wire [6:0] ADDR;
   wire [31:0] Mem_Bus;
   wire [31:0] CPU_reg1;
+  wire slowclk;
   
-  
-  
+  assign led = CPU_reg1[7:0];
 
-  MIPS CPU(CLK, RST, CS, WE, ADDR, Mem_Bus, CPU_reg1);
-  Memory MEM(CS, WE, CLK, ADDR, Mem_Bus);
+  clkDiv FPGAClk(CLK, slowclk);  // 1 Hz
+  MIPS CPU(slowclk, RST, CS, WE, ADDR, Mem_Bus, CPU_reg1);
+  Memory MEM(CS, WE, slowclk, ADDR, Mem_Bus);
+  
+  
 
 endmodule

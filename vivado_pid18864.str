@@ -131,3 +131,410 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // [GUI Memory]: 105 MB (+108069kb) [00:00:17]
 // [Engine Memory]: 948 MB (+842410kb) [00:00:17]
 // WARNING: HEventQueue.dispatchEvent() is taking  2125 ms.
+// Tcl Message: open_project C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab7/Lab7.xpr 
+// Tcl Message: INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab7/Lab7.gen/sources_1'. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'. 
+// Project name: Lab7; location: C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab7; part: xc7a35tcpg236-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1143.992 ; gain = 203.223 
+dismissDialog("Open Project"); // bq
+// Tcl Message: update_compile_order -fileset sources_1 
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // B
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+// [Engine Memory]: 1,022 MB (+27747kb) [00:00:27]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v)]", 1, true, false, false, false, true, false); // D - Popup Trigger - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 1,024 MB. GUI used memory: 121 MB. Current time: 11/27/24, 6:21:10 PM CST
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v)]", 1, true, false, false, false, false, true); // D - Double Click - Node
+// [GUI Memory]: 117 MB (+7090kb) [00:00:30]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v), CPU : MIPS (MIPS.v)]", 2, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v), CPU : MIPS (MIPS.v)]", 2, true, false, false, false, false, true); // D - Double Click - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v), MEM : Memory (Memory.v)]", 4, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v), MEM : Memory (Memory.v)]", 4, false, false, false, false, false, true); // D - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v), CPU : MIPS (MIPS.v), Register : REG (REG.v)]", 3, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, clkdiv (clkDiv.v)]", 5, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, clkdiv (clkDiv.v)]", 5, false, false, false, false, false, true); // D - Double Click
+// [GUI Memory]: 124 MB (+476kb) [00:00:37]
+// Elapsed time: 14 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Complete_MIPS.v", 1); // o
+selectCodeEditor("Complete_MIPS.v", 337, 618); // ac
+// Elapsed time: 39 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // ag
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // al
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // al
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // al
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, "Open Recent"); // al
+selectMenuItem(PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, "C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab5/Lab5.xpr"); // ao
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // ag
+// Opening Vivado Project: C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab5/Lab5.xpr. Version: Vivado v2022.2 
+selectButton("OptionPane.button", "No"); // JButton
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab5/Lab5.xpr 
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  2581 ms.
+// Tcl Message: INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab5/Lab5.gen/sources_1'. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,048 MB. GUI used memory: 78 MB. Current time: 11/27/24, 6:22:25 PM CST
+// Project name: Lab5; location: C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab5; part: xc7a35tcpg236-1
+dismissDialog("Open Project"); // bq
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 134 MB (+3840kb) [00:01:47]
+// Elapsed time: 14 seconds
+closeMainWindow("Lab5 - [C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab5/Lab5.xpr] - Vivado 2022.2"); // aK
+// Run Command: PAResourceCommand.PACommandNames_CLOSE_PROJECT
+// Elapsed time: 12 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: PROJECT_CLOSE
+dismissDialog("Close Project"); // u
+// HMemoryUtils.trashcanNow. Engine heap size: 1,050 MB. GUI used memory: 72 MB. Current time: 11/27/24, 6:22:53 PM CST
+// 'b' command handler elapsed time: 13 seconds
+// Tcl Message: close_project 
+dismissDialog("Close Project"); // bq
+// Elapsed time: 29 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // B
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_OR_CREATE_SOURCE_FILE, "Add"); // B
+selectMenuItem(PAResourceQtoS.SrcChooserPanel_CREATE_FILE, "Create File..."); // ao
+setText(PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, "Display_Controller"); // Q
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Create Source File"); // m
+selectButton("FINISH", "Finish"); // JButton
+// 'f' command handler elapsed time: 16 seconds
+dismissDialog("Add Sources"); // c
+// Tcl Message: close [ open C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab7/Lab7.srcs/sources_1/new/Display_Controller.v w ] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files C:/Users/Ethan/Desktop/Classes/ECE460M-DigitalSysDesign/Labs/Lab7/Lab7.srcs/sources_1/new/Display_Controller.v 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: FILE_SET_CHANGE
+selectButton("OptionPane.button", "Yes"); // JButton
+dismissDialog("Define Module"); // p
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Display_Controller (Display_Controller.v)]", 5, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Display_Controller (Display_Controller.v)]", 5, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  4657593 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,051 MB. GUI used memory: 71 MB. Current time: 11/27/24, 7:43:12 PM CST
+// Elapsed time: 4840 seconds
+selectCodeEditor("Display_Controller.v", 170, 573); // ac
+selectCodeEditor("Display_Controller.v", 70, 547); // ac
+selectCodeEditor("Display_Controller.v", 72, 562); // ac
+typeControlKey((HResource) null, "Display_Controller.v", 'v'); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 23 seconds
+selectCodeEditor("Display_Controller.v", 238, 235); // ac
+// Elapsed time: 38 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Complete_MIPS.v", 1); // o
+selectCodeEditor("Complete_MIPS.v", 155, 481); // ac
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Text]", 7); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Text]", 7); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 8); // D
+// Elapsed time: 10 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, mips.xdc]", 10, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, mips.xdc]", 10, false, false, false, false, false, true); // D - Double Click
+// Elapsed time: 135 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MIPS.v", 2); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "mips.xdc", 6); // o
+// Elapsed time: 286 seconds
+selectCodeEditor("mips.xdc", 278, 305); // ac
+selectCodeEditor("mips.xdc", 543, 234); // ac
+selectCodeEditor("mips.xdc", 577, 465); // ac
+selectCodeEditor("mips.xdc", 212, 362); // ac
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Complete_MIPS.v", 1); // o
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // E
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Complete_MIPS (Complete_MIPS.v)]", 1, true, false, false, false, false, true); // D - Double Click - Node
+// Elapsed time: 10 seconds
+selectCodeEditor("Complete_MIPS.v", 204, 619); // ac
+// Elapsed time: 13 seconds
+selectCodeEditor("Complete_MIPS.v", 148, 481); // ac
+// Elapsed time: 33 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "mips.xdc", 5); // o
+// Elapsed time: 23 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Display_Controller.v", 4); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Complete_MIPS.v", 6); // o
+selectCodeEditor("Complete_MIPS.v", 253, 384); // ac
+// Elapsed time: 18 seconds
+selectCodeEditor("Complete_MIPS.v", 41, 621); // ac
+// Elapsed time: 47 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MIPS.v", 1); // o
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "mips.xdc", 5); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Complete_MIPS.v", 6); // o
+selectCodeEditor("Complete_MIPS.v", 271, 364); // ac
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "mips.xdc", 5); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Complete_MIPS.v", 6); // o
+// Elapsed time: 62 seconds
+selectCodeEditor("Complete_MIPS.v", 162, 455); // ac
+// Elapsed time: 232 seconds
+selectCodeEditor("Complete_MIPS.v", 547, 173); // ac
+// WARNING: HEventQueue.dispatchEvent() is taking  11171300 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,060 MB. GUI used memory: 63 MB. Current time: 11/27/24, 11:12:27 PM CST
+// WARNING: HEventQueue.dispatchEvent() is taking  25725466 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,060 MB. GUI used memory: 62 MB. Current time: 11/28/24, 6:21:20 AM CST
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 25726498 ms. Increasing delay to 77179494 ms.
+// Elapsed time: 38548 seconds
+selectCodeEditor("Complete_MIPS.v", 183, 651); // ac
+selectCodeEditor("Complete_MIPS.v", 183, 637); // ac
+selectCodeEditor("Complete_MIPS.v", 10, 625); // ac
+// Elapsed time: 15 seconds
+selectCodeEditor("Complete_MIPS.v", 126, 453); // ac
+// Elapsed time: 27 seconds
+selectCodeEditor("Complete_MIPS.v", 284, 340); // ac
+// Elapsed time: 12 seconds
+selectCodeEditor("Complete_MIPS.v", 287, 502); // ac
+selectCodeEditor("Complete_MIPS.v", 69, 453); // ac
+selectCodeEditor("Complete_MIPS.v", 184, 453); // ac
+// Elapsed time: 18 seconds
+selectCodeEditor("Complete_MIPS.v", 368, 349); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 18 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Display_Controller.v", 4); // o
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clkDiv.v", 3); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Display_Controller.v", 4); // o
+// Elapsed time: 19 seconds
+selectCodeEditor("Display_Controller.v", 155, 285); // ac
+selectCodeEditor("Display_Controller.v", 581, 656); // ac
+selectCodeEditor("Display_Controller.v", 459, 573); // ac
+selectCodeEditor("Display_Controller.v", 459, 573, false, false, false, false, true); // ac - Double Click
+// Elapsed time: 12 seconds
+selectCodeEditor("Display_Controller.v", 176, 179); // ac
+selectCodeEditor("Display_Controller.v", 191, 175); // ac
+selectCodeEditor("Display_Controller.v", 191, 175, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("Display_Controller.v", 250, 182); // ac
+selectCodeEditor("Display_Controller.v", 250, 182, false, false, false, false, true); // ac - Double Click
+// Elapsed time: 10 seconds
+selectCodeEditor("Display_Controller.v", 409, 560); // ac
+selectCodeEditor("Display_Controller.v", 317, 224); // ac
+selectCodeEditor("Display_Controller.v", 317, 224, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("Display_Controller.v", 603, 226); // ac
+selectCodeEditor("Display_Controller.v", 134, 243); // ac
+selectCodeEditor("Display_Controller.v", 134, 243, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("Display_Controller.v", 145, 268); // ac
+selectCodeEditor("Display_Controller.v", 145, 268, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("Display_Controller.v", 617, 221); // ac
+// Elapsed time: 38 seconds
+selectCodeEditor("Display_Controller.v", 651, 212); // ac
+// Elapsed time: 12 seconds
+selectCodeEditor("Display_Controller.v", 214, 427); // ac
+// Elapsed time: 33 seconds
+selectCodeEditor("Display_Controller.v", 181, 372); // ac
+// Elapsed time: 16 seconds
+selectCodeEditor("Display_Controller.v", 160, 305); // ac
+selectCodeEditor("Display_Controller.v", 160, 305, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("Display_Controller.v", 132, 303); // ac
+selectCodeEditor("Display_Controller.v", 234, 305); // ac
+selectCodeEditor("Display_Controller.v", 156, 308); // ac
+selectCodeEditor("Display_Controller.v", 290, 309); // ac
+selectCodeEditor("Display_Controller.v", 312, 307); // ac
+selectCodeEditor("Display_Controller.v", 392, 304); // ac
+// Elapsed time: 10 seconds
+selectCodeEditor("Display_Controller.v", 129, 432); // ac
+selectCodeEditor("Display_Controller.v", 129, 432, false, false, false, false, true); // ac - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 39 seconds
+selectCodeEditor("Display_Controller.v", 305, 407); // ac
+selectCodeEditor("Display_Controller.v", 555, 424); // ac
+selectCodeEditor("Display_Controller.v", 162, 343); // ac
+selectCodeEditor("Display_Controller.v", 446, 493); // ac
+selectCodeEditor("Display_Controller.v", 446, 493, false, false, false, false, true); // ac - Double Click
+// Elapsed time: 18 seconds
+selectCodeEditor("Display_Controller.v", 514, 575); // ac
+typeControlKey((HResource) null, "Display_Controller.v", 'c'); // ac
+selectCodeEditor("Display_Controller.v", 142, 663); // ac
+typeControlKey((HResource) null, "Display_Controller.v", 'v'); // ac
+selectCodeEditor("Display_Controller.v", 431, 662); // ac
+selectCodeEditor("Display_Controller.v", 431, 662, false, false, false, false, true); // ac - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 1,060 MB. GUI used memory: 62 MB. Current time: 11/28/24, 6:51:20 AM CST
+selectCodeEditor("Display_Controller.v", 407, 660); // ac
+selectCodeEditor("Display_Controller.v", 501, 411); // ac
+typeControlKey((HResource) null, "Display_Controller.v", 'c'); // ac
+selectCodeEditor("Display_Controller.v", 487, 498); // ac
+typeControlKey((HResource) null, "Display_Controller.v", 'v'); // ac
+selectCodeEditor("Display_Controller.v", 408, 495); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("Display_Controller.v", 650, 402); // ac
+// Elapsed time: 35 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clkDiv.v", 3); // o
+// Elapsed time: 142 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Display_Controller.v", 4); // o
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // E
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Complete_MIPS.v", 5); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MIPS.v", 1); // o
+selectCodeEditor("MIPS.v", 161, 362); // ac
+selectCodeEditor("MIPS.v", 244, 457); // ac
+selectCodeEditor("MIPS.v", 252, 476); // ac
+selectCodeEditor("MIPS.v", 257, 455); // ac
+selectCodeEditor("MIPS.v", 257, 455, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("MIPS.v", 250, 489); // ac
+selectCodeEditor("MIPS.v", 232, 471); // ac
+selectCodeEditor("MIPS.v", 239, 497); // ac
+selectCodeEditor("MIPS.v", 217, 452); // ac
+selectCodeEditor("MIPS.v", 269, 494); // ac
+selectCodeEditor("MIPS.v", 177, 382); // ac
+// Elapsed time: 25 seconds
+selectCodeEditor("MIPS.v", 131, 412); // ac
+// Elapsed time: 44 seconds
+selectCodeEditor("MIPS.v", 201, 347); // ac
+// Elapsed time: 21 seconds
+selectCodeEditor("MIPS.v", 121, 59); // ac
+selectCodeEditor("MIPS.v", 121, 59, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("MIPS.v", 137, 51); // ac
+selectCodeEditor("MIPS.v", 137, 51, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("MIPS.v", 183, 376); // ac
+// Elapsed time: 11 seconds
+selectCodeEditor("MIPS.v", 86, 516); // ac
+selectCodeEditor("MIPS.v", 215, 474); // ac
+selectCodeEditor("MIPS.v", 215, 474, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("MIPS.v", 152, 595); // ac
+selectCodeEditor("MIPS.v", 67, 515); // ac
+selectCodeEditor("MIPS.v", 76, 508); // ac
+// Elapsed time: 15 seconds
+selectCodeEditor("MIPS.v", 180, 92); // ac
+selectCodeEditor("MIPS.v", 180, 92, false, false, false, false, true); // ac - Double Click
+// Elapsed time: 13 seconds
+selectCodeEditor("MIPS.v", 86, 286); // ac
+selectCodeEditor("MIPS.v", 86, 286, false, false, false, false, true); // ac - Double Click
+// Elapsed time: 13 seconds
+selectCodeEditor("MIPS.v", 182, 290); // ac
+selectCodeEditor("MIPS.v", 182, 290, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("MIPS.v", 128, 306); // ac
+selectCodeEditor("MIPS.v", 128, 306, false, false, false, false, true); // ac - Double Click
+// Elapsed time: 19 seconds
+selectCodeEditor("MIPS.v", 213, 457); // ac
+// Elapsed time: 16 seconds
+selectCodeEditor("MIPS.v", 386, 584); // ac
+selectCodeEditor("MIPS.v", 376, 572); // ac
+selectCodeEditor("MIPS.v", 232, 602); // ac
+// Elapsed time: 12 seconds
+selectCodeEditor("MIPS.v", 346, 534); // ac
+selectCodeEditor("MIPS.v", 182, 592); // ac
+selectCodeEditor("MIPS.v", 213, 599); // ac
+// Elapsed time: 31 seconds
+selectCodeEditor("MIPS.v", 385, 616); // ac
+// Elapsed time: 41 seconds
+selectCodeEditor("MIPS.v", 483, 620); // ac
+selectCodeEditor("MIPS.v", 469, 617); // ac
+selectCodeEditor("MIPS.v", 564, 618); // ac
+selectCodeEditor("MIPS.v", 564, 618); // ac
+// Elapsed time: 26 seconds
+selectCodeEditor("MIPS.v", 142, 659); // ac
+selectCodeEditor("MIPS.v", 173, 592); // ac
+selectCodeEditor("MIPS.v", 173, 592, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("MIPS.v", 106, 623); // ac
+// HMemoryUtils.trashcanNow. Engine heap size: 1,060 MB. GUI used memory: 63 MB. Current time: 11/28/24, 7:21:22 AM CST
+// Elapsed time: 1537 seconds
+selectCodeEditor("MIPS.v", 275, 267); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clkDiv.v", 2); // o
+// Elapsed time: 154 seconds
+selectCodeEditor("clkDiv.v", 167, 531); // ac
+// Elapsed time: 15 seconds
+selectCodeEditor("clkDiv.v", 139, 227); // ac
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MIPS.v", 1); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Display_Controller.v", 3); // o
+selectCodeEditor("Display_Controller.v", 27, 433); // ac
+// Elapsed time: 14 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MIPS.v", 1); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Display_Controller.v", 3); // o
+// Elapsed time: 12 seconds
+selectCodeEditor("Display_Controller.v", 296, 196); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clkDiv.v", 2); // o
+selectCodeEditor("clkDiv.v", 191, 226); // ac
+typeControlKey((HResource) null, "clkDiv.v", 'v'); // ac
+selectCodeEditor("clkDiv.v", 214, 527); // ac
+selectCodeEditor("clkDiv.v", 214, 527, false, false, false, false, true); // ac - Double Click
+// Elapsed time: 19 seconds
+selectCodeEditor("clkDiv.v", 338, 428); // ac
+// Elapsed time: 13 seconds
+selectCodeEditor("clkDiv.v", 298, 430); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 16 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // E
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Complete_MIPS.v", 4); // o
+selectCodeEditor("Complete_MIPS.v", 347, 653); // ac
+// Elapsed time: 25 seconds
+selectCodeEditor("Complete_MIPS.v", 237, 585); // ac
+selectCodeEditor("Complete_MIPS.v", 198, 682); // ac
+selectCodeEditor("Complete_MIPS.v", 198, 697); // ac
+selectCodeEditor("Complete_MIPS.v", 114, 709); // ac
+selectCodeEditor("Complete_MIPS.v", 114, 709, false, false, false, false, true); // ac - Double Click
+selectCodeEditor("Complete_MIPS.v", 310, 678); // ac
+// Elapsed time: 281 seconds
+selectCodeEditor("Complete_MIPS.v", 201, 701); // ac
+selectCodeEditor("Complete_MIPS.v", 201, 701, false, false, false, false, true); // ac - Double Click
+// Elapsed time: 46 seconds
+selectCodeEditor("Complete_MIPS.v", 386, 382); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 507 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R
+// Elapsed time: 11 seconds
+selectCodeEditor("Complete_MIPS.v", 450, 710); // ac
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "mips.xdc", 3); // o
+// Elapsed time: 14 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Complete_MIPS.v", 4); // o
+selectCodeEditor("Complete_MIPS.v", 195, 397); // ac
+selectCodeEditor("Complete_MIPS.v", 404, 259); // ac
+selectCodeEditor("Complete_MIPS.v", 412, 260); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 12 seconds
+selectCodeEditor("Complete_MIPS.v", 505, 250); // ac
+selectCodeEditor("Complete_MIPS.v", 466, 650); // ac
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // E
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "mips.xdc", 2); // o
+selectCodeEditor("mips.xdc", 484, 345); // ac
+// Elapsed time: 18 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "MIPS.v", 1); // o
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Complete_MIPS.v", 3); // o
+selectCodeEditor("Complete_MIPS.v", 336, 699); // ac
+// Elapsed time: 104 seconds
+selectCodeEditor("Complete_MIPS.v", 518, 296); // ac
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // R

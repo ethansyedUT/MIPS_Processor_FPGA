@@ -18,12 +18,12 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-`define reloadTime 50_000_000 // 100MHz ==> 1Hz Clock
-
-module clkdiv(clk, slowClk);
-  input clk; //fast clock
-  output reg slowClk; //slow clock
-
+module clkdiv #(
+    parameter RELOAD_TIME = 50_000_000  // Default: 100MHz to 1Hz
+)(
+  input clk, //fast clock
+  output reg slowClk //slow clock
+);
   reg[27:0] counter;
 
   initial begin
@@ -33,7 +33,7 @@ module clkdiv(clk, slowClk);
 
   always @ (posedge clk)
   begin
-    if(counter == `reloadTime) begin
+    if(counter == RELOAD_TIME) begin
       counter <= 0;
       slowClk <= ~slowClk;  // Toggle the clock
     end

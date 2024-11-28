@@ -32,14 +32,15 @@
 `define f_code instr[5:0]
 `define numshift instr[10:6]
 
-module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1);
+module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1, reg2);
   input CLK;
-  input [1:0] SW;
+  input [3:0]SW;
   output reg CS, WE;
   output [6:0] ADDR;
   input [31:0] data_in;     // NEW
   output [31:0] data_out;   // NEW
-  output [31:0] reg1;       // NEW
+  output [31:0] reg1, reg2;       // NEW
+ 
   
 //  inout [31:0] Mem_Bus;
 
@@ -108,7 +109,7 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1);
   
   //drive memory bus only during writes
   assign ADDR = (fetchDorI)? pc : alu_result_save[6:0]; //ADDR Mux
-  REG Register(CLK, regw, dr, `sr1, `sr2, reg_in, readreg1, readreg2, reg1);
+  REG Register(CLK, regw, dr, `sr1, `sr2, reg_in, readreg1, readreg2, reg1, reg2, SW[2:0]);
   
   
 
@@ -140,14 +141,11 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1);
     //END
     case (state)
       0: begin //fetch
-        if(!SW[1])begin
-            npc = pc + 7'd1; CS = 1; nstate = 3'd1;
-            fetchDorI = 1;
-            $display("Fetch Status:");
-            $display("CS=%b, WE=%b, ADDR=%h", CS, WE, ADDR);
-            $display("instr=%h\n", instr);
-        end else 
-            $display("Processor HALTED!"); // Remains in s0 due to init
+        npc = pc + 7'd1; CS = 1; nstate = 3'd1;
+        fetchDorI = 1;
+        $display("Fetch Status:");
+        $display("CS=%b, WE=%b, ADDR=%h", CS, WE, ADDR);
+        $display("instr=%h\n", instr);
       end
       1: begin //decode
         nstate = 3'd2; reg_or_imm = 0; alu_or_mem = 0;
@@ -254,7 +252,7 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1);
 
   always @(posedge CLK) begin
 
-    if (SW[0]) begin
+    if (SW[3]) begin
       state <= 3'd0;
       pc <= 7'd0;
     end

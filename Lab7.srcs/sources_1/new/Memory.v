@@ -45,8 +45,8 @@ module Memory(CS, WE, CLK, ADDR, data_in, data_out);
          begin
             RAM[i] = 32'd0; //initialize all locations to 0
          end
-         $readmemh("MIPS_Instructions.txt", RAM);
-         for(i=0; i<28; i=i+1) begin  // Print first 20 instructions or however many you need
+         $readmemh("MC_Lab7_TestProgram.txt", RAM);
+         for(i=0; i<35; i=i+1) begin  // Print first 20 instructions or however many you need
             $display("RAM[%0d] = %h", i, RAM[i]);
          end
          //this optional statement can be inserted to read initial values

@@ -1,18 +1,24 @@
-addi $0, $0, 0      # Set $0 to 0 (testing if hardwired to 0)
-addi $2, $0, 512
-addi $1, $0, 1      # $1 = 1
+# Machine Code   MIPS Instruction         Explanation
+20010001        addi $1, $0, 1           # 001000 00000 00001 0000000000000001
+                                         # op=8, rs=$0, rt=$1, immediate=1
+                                         # Sets $1 to 1
 
-# Create a loop that shifts left by 1 each time
-loop:
-sll $1, $1, 1       # Shift $1 left by 1
-bne $1, $2, loop    # If $1 is not 512, continue shifting
-addi $1, $0, 1      # Reset $1 to 1 when it becomes 0
-j loop              # Repeat forever
+20020100        addi $2, $0, 256         # 001000 00000 00010 0000000100000000
+                                         # op=8, rs=$0, rt=$2, immediate=256
+                                         # Sets $2 to 256 (this value persists)
 
-# Machine code:
-20000000    # addi $0, $0, 0
-20010001    # addi $1, $0, 1
-00010840    # sll $1, $1, 1
-14200001    # bne $1, $0, loop (-1 instruction)
-20010001    # addi $1, $0, 1
-08000002    # j loop (to instruction 2)
+00010840        sll $1, $1, 1            # 000000 00001 00000 00001 00001 000000
+                                         # op=0, rs=$1, rt=$0, rd=$1, shamt=1, funct=0
+                                         # Shifts $1 left by 1
+
+14220001        bne $1, $2, 1            # 000101 00001 00010 0000000000000001
+                                         # op=5, rs=$1, rt=$2, offset=1
+                                         # Branches if $1 != $2
+
+20010001        addi $1, $0, 1           # 001000 00000 00001 0000000000000001
+                                         # op=8, rs=$0, rt=$1, immediate=1
+                                         # Resets $1 to 1
+
+08000002        j 2                      # 000010 00000000000000000000000010
+                                         # op=2, target address=2
+                                         # Jumps back to the sll instruction at address 2

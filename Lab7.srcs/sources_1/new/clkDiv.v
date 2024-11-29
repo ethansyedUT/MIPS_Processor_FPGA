@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-`define reloadTime 50_000_000 // 100MHz ==> 1Hz Clock
+`define reloadTime 1_500_000 // 100MHz ==> 2Hz Clock
 
 module clkdiv(clk, slowClk);
   input clk; //fast clock
@@ -39,7 +39,6 @@ module clkdiv(clk, slowClk);
     end
     else begin
       counter <= counter + 1;
-      slowClk <= 0;
     end
   end
 

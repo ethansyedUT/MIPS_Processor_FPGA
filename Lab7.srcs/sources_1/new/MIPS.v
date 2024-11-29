@@ -41,6 +41,7 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1);
   output [31:0] data_out;   // NEW
   output [31:0] reg1;       // NEW
   
+  
 //  inout [31:0] Mem_Bus;
 
   //special instructions (opcode == 000000), values of F code (bits 5-0):
@@ -108,9 +109,10 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1);
   
   //drive memory bus only during writes
   assign ADDR = (fetchDorI)? pc : alu_result_save[6:0]; //ADDR Mux
-  REG Register(CLK, regw, dr, `sr1, `sr2, reg_in, readreg1, readreg2, reg1);
+  REG Register(CLK, regw, dr, `sr1, `sr2, reg_in, readreg1, readreg2);
   
-  
+  //assign reg1 = {readreg2[7:0] , 20'h0000000, 2'b00, reg_or_imm_save, regw};
+  assign reg1 = {24'h000000, Register.REG[1][7:0]};
 
 
   initial begin
@@ -262,7 +264,7 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1);
       state <= nstate;
       pc <= npc;
     end
-
+    
     if (state == 3'd0) instr <= data_in;
     else if (state == 3'd1) begin
       opsave <= op;

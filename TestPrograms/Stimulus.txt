@@ -4,6 +4,8 @@ add_wave -radix unsigned /Complete_MIPS_tb/CPU/pc
 add_wave -radix unsigned /Complete_MIPS_tb/CPU/state
 add_wave -radix unsigned /Complete_MIPS_tb/CPU/alu_in_A
 add_wave -radix unsigned /Complete_MIPS_tb/CPU/alu_in_B
+add_wave -radix unsigned /Complete_MIPS_tb/CPU/Register/REG
 add_wave -radix dec /Complete_MIPS_tb/CPU/alu_result
 add_wave -radix dec /Complete_MIPS_tb/CPU/ADDR
+
 run 2000

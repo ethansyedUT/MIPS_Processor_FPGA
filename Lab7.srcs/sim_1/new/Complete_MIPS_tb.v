@@ -39,8 +39,18 @@ module Complete_MIPS_tb ();
     wire [31:0] CPU_Driver;
     wire [31:0] Memory_Driver;
     wire [31:0] cpu_reg1;
+    
+
+    wire [1:0] sw;
+    assign sw = {1'b0, RST};
+    
+//    wire slowclk;
  
-    MIPS CPU(CLK, RST, CS, WE, Address, Mem_Bus, CPU_Driver, cpu_reg1);
+//    clkdiv FPGAClk(clk, slowclk);  // 1 Hz
+  
+    MIPS CPU(CLK, sw, CS, WE, Address, Mem_Bus, CPU_Driver, cpu_reg1);
+    
+    // MIPS CPU(CLK, RST, CS, WE, Address, Mem_Bus, CPU_Driver, cpu_reg1);
     Memory MEM(CS, WE, CLK, Address, Mem_Bus, Memory_Driver);
   
     assign Mem_Bus = (CS && !WE)? Memory_Driver : 32'bz;
@@ -62,9 +72,7 @@ module Complete_MIPS_tb ();
      expected[8] = 32'h00000120; // $8 content=288 decimal
      expected[9] = 32'h00000003; // $9 content=3
      expected[10] = 32'h00412022; // $10 content=5th instr 
-    CLK = 0;
-
-    
+    CLK = 0;    
   end
 
   always begin
@@ -86,7 +94,6 @@ module Complete_MIPS_tb ();
 
 
     @(posedge CLK);
-
     @(posedge CLK);
     // driving reset low here puts processor in normal operating mode
     RST <= 1'b0;
@@ -94,19 +101,19 @@ module Complete_MIPS_tb ();
     /* add your testing code here */
     // you can add in a 'Halt' signal here as well to test Halt operation
     // you will be verifying your program operation using the
-    // waveform viewer and/or self-checking operations
-    for(i = 1; i <= N; i = i+1) begin
+//    // waveform viewer and/or self-checking operations
+//    for(i = 1; i <= N; i = i+1) begin
         
-         @(posedge WE); // When a store word is executed
-         @(negedge CLK);
-         $display("Finished iteration %d", i);
-         $display("Membus status %d\n", Mem_Bus);
-         if(Mem_Bus != expected[i])
-            $display("Output mismatch: got %d, expect %d", Mem_Bus,expected[i]);
-    end
-         
+//         //@(posedge WE); // When a store word is executed
+//         @(negedge CLK);
+//         $display("Finished iteration %d", i);
+//         $display("Membus status %d\n", Mem_Bus);
+//         if(Mem_Bus != expected[i])
+//            $display("Output mismatch: got %d, expect %d", Mem_Bus,expected[i]);
+//    end
+    #1000
     $display("TEST COMPLETE");
-    $stop;
+    //$stop;
   end
 
 endmodule

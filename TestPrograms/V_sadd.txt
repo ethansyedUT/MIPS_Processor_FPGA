@@ -1,0 +1,9 @@
+2021EF55    addi $1, $1, 0xEF55   # Add immediate value 61269 (0xEF55) to $1
+2042FFFF    addi $2, $2, 0xFFFF   # Add immediate value 65535 (0xFFFF) to $2
+20630001    addi $3, $3, 1
+1423FFFD    bne $1, $3, -3        # Branch back 3 instructions if $1 ≠ $3
+20010200    addi $1, $0, 0x0200   # Load immediate value 512 (0x0200) into $1
+20030000    addi $3, $0, 0        # Clear $3 to 0
+2084FFFF    addi $4, $4, 0xFFFF   # Add immediate value 65535 (0xFFFF) to $4
+20630001    addi $3, $3, 1        # Increment $3
+1423FFFD    bne $1, $3, -3        # Branch back 3 instructions if $1 ≠ $3

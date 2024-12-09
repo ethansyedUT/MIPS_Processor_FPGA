@@ -92,6 +92,8 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1, reg2);
   reg fetchDorI;
   wire [4:0] dr;
   reg [2:0] state, nstate;
+  
+  reg [6:0] pc1_save;
 
   //combinational
   assign imm_ext = (instr[15] == 1)? {16'hFFFF, instr[15:0]} : {16'h0000, instr[15:0]};//Sign extend immediate field
@@ -109,10 +111,10 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1, reg2);
   
   //drive memory bus only during writes
   assign ADDR = (fetchDorI)? pc : alu_result_save[6:0]; //ADDR Mux
-  REG Register(CLK, regw, dr, `sr1, `sr2, reg_in, readreg1, readreg2, reg1, reg2, SW[2:0]);
+  REG Register(CLK, regw, dr, `sr1, `sr2, reg_in, readreg1, readreg2,SW[2:0]);
   
-  
-
+  assign reg1 = Register.REG[1];
+  assign reg2 = Register.REG[2];
 
   initial begin
     op = and1; opsave = and1;
@@ -145,7 +147,9 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1, reg2);
         fetchDorI = 1;
         $display("Fetch Status:");
         $display("CS=%b, WE=%b, ADDR=%h", CS, WE, ADDR);
-        $display("instr=%h\n", instr);
+        $display("instr=%h", instr);
+        $display("----------------------\n");
+
       end
       1: begin //decode
         nstate = 3'd2; reg_or_imm = 0; alu_or_mem = 0;
@@ -155,10 +159,14 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1, reg2);
         //END
         $display("Decode Status:");
         $display("CS=%b, WE=%b, ADDR=%h", CS, WE, ADDR);
-        $display("instr=%h\n", instr);
+        $display("instr=%h", instr);
+        $display("----------------------\n");
+
         if (format == J) begin //jump, and finish
           npc = instr[6:0];
           if(`opcode == jal)begin
+            pc1_save = pc;
+            R_or_jal = 1;
             reg1_or_pc1 = 1;
             op = jal;
           end else
@@ -167,6 +175,7 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1, reg2);
         else if (format == R) begin//register instructions
           op = `f_code;
           if(`f_code == rbit || `f_code == rev) rs_dest = 1;
+          $display("Aight bro here's op: %b", `f_code);
         end
         else if (format == I) begin //immediate instructions
           reg_or_imm = 1;
@@ -187,6 +196,9 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1, reg2);
       2: begin //execute
         nstate = 3'd3;
         $display("Execute Status:");
+        $display("Opsave: %b", opsave);
+        $display("PC: %h", pc);
+        $display("----------------------\n");
         if (opsave == and1) alu_result = alu_in_A & alu_in_B;
         else if (opsave == or1) alu_result = alu_in_A | alu_in_B;
         else if (opsave == add) alu_result = alu_in_A + alu_in_B;
@@ -199,21 +211,17 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1, reg2);
         else if (opsave == lui) alu_result = alu_in_B << 16;           
         else if (opsave == rbit) begin
             for(i = 0; i<=31; i = i+1) begin
-                alu_result[i] = alu_in_B[i];
+                alu_result[31-i] = alu_in_B[i];
             end
         end else if (opsave == rev) begin
-            alu_result[31:24]=alu_in_B[7:0];
+            alu_result[31:24]= alu_in_B[7:0];
             alu_result[23:16] = alu_in_B[15:8];
             alu_result[15:8] = alu_in_B[23:16];
             alu_result[7:0] = alu_in_B[31:24];
         end else if (opsave == add8) begin
-            alu_result[31:24] = alu_in_A[31:24] + alu_in_B[31:24];
-            alu_result[23:16] = alu_in_A[23:16] + alu_in_B[23:16];
-            alu_result[15:8] = alu_in_A[15:8] + alu_in_B[15:8];
-            alu_result[7:0] = alu_in_A[7:0] + alu_in_B[7:0];
-        end else if (opsave == sadd) alu_result = (alu_in_A + alu_in_B < alu_in_A || alu_in_A + alu_in_B < alu_in_B) ? 32'hFFFFFFFF : alu_in_A + alu_in_B; 
+            alu_result = {alu_in_A[31:24] + alu_in_B[31:24], alu_in_A[23:16] + alu_in_B[23:16], alu_in_A[15:8] + alu_in_B[15:8], alu_in_A[7:0] + alu_in_B[7:0]};
+        end else if (opsave == sadd) alu_result = (((alu_in_A + alu_in_B) < alu_in_A) || ((alu_in_A + alu_in_B) < alu_in_B)) ? 32'hFFFFFFFF : alu_in_A + alu_in_B; 
         else if (opsave == ssub) alu_result = (alu_in_B > alu_in_A) ? 32'h00000000 : alu_in_A - alu_in_B; 
-        
         // END
         if (((alu_in_A == alu_in_B)&&(`opcode == beq)) || ((alu_in_A != alu_in_B)&&(`opcode == bne))) begin
           npc = pc + imm_ext[6:0];
@@ -224,9 +232,10 @@ module MIPS (CLK, SW, CS, WE, ADDR, data_in, data_out, reg1, reg2);
           npc = alu_in_A[6:0];
           nstate = 3'd0;
         end else if(opsave == jal) begin                // NEW
-            alu_result = alu_in_A;
+            $display("jal execute phase Alu_in_A =%h, mux4_save: %b", alu_in_A, MUX4_save);
+            alu_result = pc1_save;
         end
-        $display("ALU_A %d, ALU_B %d, ALU_Result %d\n",alu_in_A, alu_in_B, alu_result);
+        //$display("ALU_A %h, ALU_B %h, ALU_Result %h\n",alu_in_A, alu_in_B, alu_result);
       end
       3: begin //prepare to write to mem
         $display("Writeback\n");

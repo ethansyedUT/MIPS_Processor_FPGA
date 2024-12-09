@@ -44,7 +44,7 @@ module debounce(
     my_dff d2(clk, Q1, Q2);
 
     assign Q2_bar = ~Q2;
-    assign pb_out = Q1 & Q2_bar;
+    assign pb_out = Q1 & Q2;
 endmodule
 
 // D-flip-flop for debouncing module 

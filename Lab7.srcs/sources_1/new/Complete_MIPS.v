@@ -48,10 +48,10 @@ module Complete_MIPS(clk, RST, sw, btnL, btnR, seg, an);
     wire Hi;
     
     assign num = (Hi)? reg2_watch[31:16] : reg2_watch[15:0];
-    assign Mem_Bus = (CS && !WE)? Memory_Driver : 32'bz;
-    assign Mem_Bus = (WE)? CPU_Driver : 32'bz;
+    assign Mem_Bus = (CS && !WE) ? Memory_Driver :
+                   (WE) ? CPU_Driver : 32'bz;
     
-    clkdiv #(.RELOAD_TIME(50_000_000)) FPGAClk(clk, fpgaClk);  // 1 Hz clock for FPGA
+    clkdiv #(.RELOAD_TIME(500_000)) FPGAClk(clk, fpgaClk);  // 1 Hz clock for FPGA
     clkdiv #(.RELOAD_TIME(1_500_000)) btnNoiseClk(clk, btnClk); // 33.33 Hz clk for btn debounce
     
     inputHandler in(btnClk, btnL, btnR, Hi);

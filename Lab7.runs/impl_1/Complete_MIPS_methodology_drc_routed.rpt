@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Nov 28 10:53:20 2024
+| Date         : Sun Dec  8 20:20:14 2024
 | Host         : EthanWindows running 64-bit major release  (build 9200)
 | Command      : report_methodology -file Complete_MIPS_methodology_drc_routed.rpt -pb Complete_MIPS_methodology_drc_routed.pb -rpx Complete_MIPS_methodology_drc_routed.rpx
 | Design       : Complete_MIPS
@@ -23,13 +23,15 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 1011
-+-----------+------------------+-------------------------------+------------+
-| Rule      | Severity         | Description                   | Violations |
-+-----------+------------------+-------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 1000       |
-| TIMING-18 | Warning          | Missing input or output delay | 11         |
-+-----------+------------------+-------------------------------+------------+
+             Violations found: 1019
++-----------+------------------+--------------------------------+------------+
+| Rule      | Severity         | Description                    | Violations |
++-----------+------------------+--------------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell    | 1000       |
+| TIMING-18 | Warning          | Missing input or output delay  | 11         |
+| TIMING-20 | Warning          | Non-clocked latch              | 7          |
+| LATCH-1   | Advisory         | Existing latches in the design | 1          |
++-----------+------------------+--------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -5086,6 +5088,46 @@ Related violations: <none>
 TIMING-18#11 Warning
 Missing input or output delay  
 An output delay is missing on seg[6] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch CPU/pc1_save_reg[0] cannot be properly analyzed as its control pin CPU/pc1_save_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch CPU/pc1_save_reg[1] cannot be properly analyzed as its control pin CPU/pc1_save_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch CPU/pc1_save_reg[2] cannot be properly analyzed as its control pin CPU/pc1_save_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch CPU/pc1_save_reg[3] cannot be properly analyzed as its control pin CPU/pc1_save_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch CPU/pc1_save_reg[4] cannot be properly analyzed as its control pin CPU/pc1_save_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch CPU/pc1_save_reg[5] cannot be properly analyzed as its control pin CPU/pc1_save_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch CPU/pc1_save_reg[6] cannot be properly analyzed as its control pin CPU/pc1_save_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+LATCH-1#1 Advisory
+Existing latches in the design  
+There are 7 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
 Related violations: <none>
 
 

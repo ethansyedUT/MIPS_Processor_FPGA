@@ -26,7 +26,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-module REG(CLK, RegW, DR, SR1, SR2, Reg_In, ReadReg1, ReadReg2, reg1, reg2, sw);
+module REG(CLK, RegW, DR, SR1, SR2, Reg_In, ReadReg1, ReadReg2, sw);
   input CLK;
   input RegW;
   input [4:0] DR;
@@ -37,8 +37,6 @@ module REG(CLK, RegW, DR, SR1, SR2, Reg_In, ReadReg1, ReadReg2, reg1, reg2, sw);
   
   output reg [31:0] ReadReg1;
   output reg [31:0] ReadReg2;
-  output reg [31:0] reg1;
-  output reg [31:0] reg2;
 
   reg [31:0] REG [0:31];
   integer i;
@@ -46,17 +44,21 @@ module REG(CLK, RegW, DR, SR1, SR2, Reg_In, ReadReg1, ReadReg2, reg1, reg2, sw);
   initial begin
     ReadReg1 = 0;
     ReadReg2 = 0;
+    for(i = 0; i < 32; i = i + 1) begin
+        REG[i] = 32'h00000000;  // Initialize all registers to 0
+    end
   end
 
   always @(posedge CLK)
   begin
     if(RegW == 1'b1)
-      REG[DR] <= Reg_In[31:0];
+      if(DR == 1)
+        REG[DR] <= {Reg_In[31:3], sw[2:0]};
+      else
+        REG[DR] <= Reg_In[31:0];
     else
       REG[1] <= {REG[1][31:3], sw[2:0]};
     ReadReg1 <= REG[SR1];
     ReadReg2 <= REG[SR2];
-    reg1 <= REG[1];
-    reg2 <= REG[2];
   end
 endmodule

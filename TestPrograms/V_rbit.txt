@@ -1,0 +1,2 @@
+3C02ABCD	// lui $2, 0xABCD
+0042002F	// rbit $4, $4 (Result ==> $4 = 0000B3D5)
